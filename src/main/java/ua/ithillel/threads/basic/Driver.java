@@ -1,4 +1,4 @@
-package ua.ithillel.threads;
+package ua.ithillel.threads.basic;
 
 public class Driver {
     public record Person(int id, String name) {}

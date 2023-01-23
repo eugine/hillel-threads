@@ -1,4 +1,4 @@
-package ua.ithillel.threads;
+package ua.ithillel.threads.basic;
 
 public class ThreadsExample {
     public static void main(String[] args) throws InterruptedException {
