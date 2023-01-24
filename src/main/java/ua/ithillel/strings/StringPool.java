@@ -1,4 +1,4 @@
-package ua.ithillel.primitives;
+package ua.ithillel.strings;
 
 public class StringPool {
     public static void main(String[] args) {
@@ -6,6 +6,7 @@ public class StringPool {
 
         System.out.println(name == "Ralf");
         System.out.println(name == new String("Ralf"));
+        System.out.println(name == new String("Ralf").intern());
 
     }
 }
