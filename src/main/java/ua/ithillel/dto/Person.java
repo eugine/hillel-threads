@@ -1,12 +1,12 @@
 package ua.ithillel.dto;
 
-public class PersonClass {
+public class Person {
     private final int id;
     private final String name;
     private final String year;
     private final String address;
 
-    public PersonClass(int id, String name, String year, String address) {
+    public Person(int id, String name, String year, String address) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -34,6 +34,8 @@ public class PersonClass {
         return "PersonClass{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", year='" + year + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

@@ -1,7 +1,7 @@
 package ua.ithillel.dto;
 
 public record PersonRecord(
-        int id,
+        int idxxx,
         String name,
         String year,
         String address

@@ -8,11 +8,29 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
 
     @Test
-    void shouldAddInts() {
-        var calculator = new Calculator();
+    void shouldAddIns() {
+        Calculator calculator = new Calculator();
 
-//        assert calculator.add(1, 2) == 4;
         assertEquals(3, calculator.add(1,2));
+    }
+
+    @Test
+    void shouldAddIns2() {
+        Calculator calculator = new Calculator();
+
+        assertEquals(4, calculator.add(2,2));
+    }
+    @Test
+    void shouldAddIns3() {
+        Calculator calculator = new Calculator();
+
+        assertEquals(6, calculator.add(4,2));
+    }
+    @Test
+    void shouldAddIns4() {
+        Calculator calculator = new Calculator();
+
+        assertEquals(6, calculator.add(4,2));
     }
 
 }

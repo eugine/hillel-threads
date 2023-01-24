@@ -9,8 +9,7 @@ public class Driver {
         String pName = "Jon";
         Person p = null;
         p = new Person(id, pName);
-        //p.id()
-        //p.name()
+
 
 
     }
