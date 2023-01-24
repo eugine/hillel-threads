@@ -12,8 +12,6 @@ public class Driver {
         //p.id()
         //p.name()
 
-        // String pool example:
-//        System.out.println(pName == "Jon");
-//        System.out.println(pName == new String("Jon"));
+
     }
 }
