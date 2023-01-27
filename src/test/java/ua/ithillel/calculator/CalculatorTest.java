@@ -1,6 +1,7 @@
 package ua.ithillel.calculator;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 //https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.9.2
@@ -12,6 +13,12 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
 
         assertEquals(3, calculator.add(1,2));
+        assertThrows(IllegalArgumentException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                calculator.add(1,2);
+            }
+        });
     }
 
     @Test
