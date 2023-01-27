@@ -1,6 +1,6 @@
 package ua.ithillel.hausaufgabe.hw2.part2;
 
-public class Cat extends Animal {
+public class Cat extends Animal  {
 
     private final int MAX_RUN_DISTANCE = 100;
 
@@ -20,12 +20,9 @@ public class Cat extends Animal {
 //            System.out.println(String.format("Cat runs %s m", distance));
 //            System.out.printf("Cat runs %s m%n", distance);
         } else {
-            System.out.println("Can can not run " + distance + "m");
+            System.out.println("Cat can not run " + distance + "m");
         }
     }
 
-    @Override
-    public void swim(int distance) {
-        System.out.println("Cat can't swim");
-    }
+
 }

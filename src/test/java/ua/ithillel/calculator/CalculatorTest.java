@@ -13,12 +13,30 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
 
         assertEquals(3, calculator.add(1,2));
-        assertThrows(IllegalArgumentException.class, new Executable() {
+
+    }
+
+    @Test
+    void shouldThrowExceptionOnParsingIncorrectString() {
+        assertThrows(NumberFormatException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                calculator.add(1,2);
+                Integer.parseInt("123r");
             }
         });
+    }
+
+    @Test
+    void shouldThrowExceptionOnParsingIncorrectStringUsingLambdaExpression() {
+        assertThrows(NumberFormatException.class, () -> Integer.parseInt("123r"));
+    }
+
+    @Test
+    void shouldMatchStrings() {
+        var initial = "121";
+        var reversed = new StringBuilder("121").toString();
+
+        assertEquals(initial, reversed);
     }
 
     @Test

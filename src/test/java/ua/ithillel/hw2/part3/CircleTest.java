@@ -9,7 +9,9 @@ class CircleTest {
 
     @Test
     void shouldCalculateArea() {
-        assertEquals(314.15, new Circle(10).area(), 0.001);
+        double actual = new Circle(10).area();
+
+        assertEquals(314.159, actual, 0.001);
     }
 
 }
