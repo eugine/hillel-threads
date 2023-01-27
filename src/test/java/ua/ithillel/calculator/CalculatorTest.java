@@ -22,6 +22,14 @@ class CalculatorTest {
     }
 
     @Test
+    void shouldMatchStrings() {
+        var initial = "121";
+        var reversed = new StringBuilder("121").toString();
+
+        assertEquals(initial, reversed);
+    }
+
+    @Test
     void shouldAddIns2() {
         Calculator calculator = new Calculator();
 
