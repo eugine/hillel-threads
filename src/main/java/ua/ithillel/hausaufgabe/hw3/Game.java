@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 
 public class Game {
     private static final int HINT_LENGTH = 15;
+    public static final char PLACEHOLDER_CHAR = '#';
     private final String puzzle;
 
     public Game(String puzzle) {
@@ -26,7 +27,7 @@ public class Game {
         return sb.toString();
     }
 
-// same hint bug with Streams
+    // same hint bug with Streams
     private String getHint2(String guess) {
         return IntStream.range(0, HINT_LENGTH)
                 .mapToObj(index -> resolveSymbol(puzzle, guess, index))
@@ -35,9 +36,10 @@ public class Game {
     }
 
     private char resolveSymbol(String puzzle, String guess, int index) {
-        if (index < puzzle.length() && index < guess.length() && puzzle.charAt(index) == guess.charAt(index)) {
-            return puzzle.charAt(index);
+        if (index >= puzzle.length() || index >= guess.length()) {
+            return PLACEHOLDER_CHAR;
         }
-        return '#';
+        var charAreSame = puzzle.charAt(index) == guess.charAt(index);
+        return charAreSame ? puzzle.charAt(index) : PLACEHOLDER_CHAR;
     }
 }
