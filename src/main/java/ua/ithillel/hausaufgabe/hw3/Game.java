@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 
 public class Game {
     private static final int HINT_LENGTH = 15;
-    public static final char HINT_HIDDEN_CHAR = '#';
+    private static final char HINT_HIDDEN_CHAR = '#';
     private final String puzzle;
 
     public Game(String puzzle) {
