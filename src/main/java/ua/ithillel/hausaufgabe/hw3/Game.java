@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Game {
+    private static final int HINT_LENGTH = 15;
     private final String puzzle;
 
     public Game(String puzzle) {
@@ -19,7 +20,7 @@ public class Game {
 
     private String getHint(String guess) {
         var sb = new StringBuilder();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < HINT_LENGTH; i++) {
             sb.append(resolveSymbol(puzzle, guess, i));
         }
         return sb.toString();
@@ -27,7 +28,7 @@ public class Game {
 
 // same hint bug with Streams
     private String getHint2(String guess) {
-        return IntStream.range(0, 15)
+        return IntStream.range(0, HINT_LENGTH)
                 .mapToObj(index -> resolveSymbol(puzzle, guess, index))
                 .map(String::valueOf)
                 .collect(Collectors.joining());
