@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 
 public class Game {
     private static final int HINT_LENGTH = 15;
-    public static final char PLACEHOLDER_CHAR = '#';
+    public static final char HINT_HIDDEN_CHAR = '#';
     private final String puzzle;
 
     public Game(String puzzle) {
@@ -37,9 +37,9 @@ public class Game {
 
     private char resolveSymbol(String puzzle, String guess, int index) {
         if (index >= puzzle.length() || index >= guess.length()) {
-            return PLACEHOLDER_CHAR;
+            return HINT_HIDDEN_CHAR;
         }
-        var charAreSame = puzzle.charAt(index) == guess.charAt(index);
-        return charAreSame ? puzzle.charAt(index) : PLACEHOLDER_CHAR;
+        var charsEqual = puzzle.charAt(index) == guess.charAt(index);
+        return charsEqual ? puzzle.charAt(index) : HINT_HIDDEN_CHAR;
     }
 }
