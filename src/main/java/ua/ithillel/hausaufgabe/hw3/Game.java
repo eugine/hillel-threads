@@ -1,5 +1,8 @@
 package ua.ithillel.hausaufgabe.hw3;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class Game {
     private final String puzzle;
 
@@ -22,19 +25,18 @@ public class Game {
         return sb.toString();
     }
 
-/*
-// same hint with Streams
-    private String getHint(String guess) {
+// same hint bug with Streams
+    private String getHint2(String guess) {
         return IntStream.range(0, 15)
                 .mapToObj(index -> resolveSymbol(puzzle, guess, index))
-                .collect(joining());
+                .map(String::valueOf)
+                .collect(Collectors.joining());
     }
- */
 
-    private String resolveSymbol(String puzzle, String guess, int index) {
+    private char resolveSymbol(String puzzle, String guess, int index) {
         if (index < puzzle.length() && index < guess.length() && puzzle.charAt(index) == guess.charAt(index)) {
-            return String.valueOf(puzzle.charAt(index));
+            return puzzle.charAt(index);
         }
-        return "#";
+        return '#';
     }
 }
