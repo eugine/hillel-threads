@@ -1,6 +1,7 @@
 package ua.ithillel.threads.basic;
 
-record Person(int id, String name) {}
+record Person(int id, String name) {
+}
 
 public class Driver {
 
@@ -9,7 +10,6 @@ public class Driver {
         String pName = "Jon";
         Person p = null;
         p = new Person(id, pName);
-
 
 
     }

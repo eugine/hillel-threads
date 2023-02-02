@@ -3,7 +3,8 @@ package ua.ithillel.calculator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 //https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.9.2
 
 class CalculatorTest {
@@ -12,7 +13,7 @@ class CalculatorTest {
     void shouldAddIns() {
         Calculator calculator = new Calculator();
 
-        assertEquals(3, calculator.add(1,2));
+        assertEquals(3, calculator.add(1, 2));
 
     }
 
@@ -43,19 +44,21 @@ class CalculatorTest {
     void shouldAddIns2() {
         Calculator calculator = new Calculator();
 
-        assertEquals(4, calculator.add(2,2));
+        assertEquals(4, calculator.add(2, 2));
     }
+
     @Test
     void shouldAddIns3() {
         Calculator calculator = new Calculator();
 
-        assertEquals(6, calculator.add(4,2));
+        assertEquals(6, calculator.add(4, 2));
     }
+
     @Test
     void shouldAddIns4() {
         Calculator calculator = new Calculator();
 
-        assertEquals(6, calculator.add(4,2));
+        assertEquals(6, calculator.add(4, 2));
     }
 
 }

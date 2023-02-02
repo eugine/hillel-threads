@@ -1,6 +1,7 @@
 package ua.ithillel.hausaufgabe.hw3;
 
-public record GameResult (
+public record GameResult(
         String hint,
         GameStatus status
-) {}
+) {
+}

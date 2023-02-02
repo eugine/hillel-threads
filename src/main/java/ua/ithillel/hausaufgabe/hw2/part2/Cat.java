@@ -1,6 +1,6 @@
 package ua.ithillel.hausaufgabe.hw2.part2;
 
-public class Cat extends Animal  {
+public class Cat extends Animal {
 
     private final int MAX_RUN_DISTANCE = 100;
 

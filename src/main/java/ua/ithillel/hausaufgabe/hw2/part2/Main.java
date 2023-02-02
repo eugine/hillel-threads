@@ -6,7 +6,7 @@ public class Main {
         Dog dog = new Dog("Bobik");
         Cat cat = new Cat("Mursik", 100);
 
-        var swimmer = new Swim[] {
+        var swimmer = new Swim[]{
                 dog
         };
 

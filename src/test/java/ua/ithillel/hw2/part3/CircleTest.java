@@ -3,7 +3,7 @@ package ua.ithillel.hw2.part3;
 import org.junit.jupiter.api.Test;
 import ua.ithillel.hausaufgabe.hw2.part3.Circle;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CircleTest {
 

@@ -14,6 +14,14 @@ import static ua.ithillel.hausaufgabe.hw3.GameStatus.WIN;
 
 class GameTest {
 
+    private static Stream<Arguments> datasource() {
+        return Stream.of(
+                Arguments.of("puzzle", "puzzle", new GameResult("puzzle", WIN)),
+                Arguments.of("puzzle", "pizza", new GameResult("p#zz###########", LOST)),
+                Arguments.of("apple", "apricot", new GameResult("ap#############", LOST))
+        );
+    }
+
     @Test
     void shouldWinGame() {
         var game = new Game("puzzle");
@@ -40,14 +48,6 @@ class GameTest {
         var result = game.play(guess);
 
         assertThat(result, equalTo(expectedResult));
-    }
-
-    private static Stream<Arguments> datasource() {
-        return Stream.of(
-                Arguments.of("puzzle", "puzzle", new GameResult("puzzle", WIN)),
-                Arguments.of("puzzle", "pizza", new GameResult("p#zz###########", LOST)),
-                Arguments.of("apple", "apricot", new GameResult("ap#############", LOST))
-        );
     }
 
 }

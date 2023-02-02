@@ -16,7 +16,7 @@ public class Main {
         ///.....
 
         var person = new PersonRecord(1, "year", "name", "address");
-        var person2 =new PersonRecord(1, "year", "name", "address");
+        var person2 = new PersonRecord(1, "year", "name", "address");
 
         ///...
     }
