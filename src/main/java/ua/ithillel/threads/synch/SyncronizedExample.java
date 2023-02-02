@@ -9,9 +9,9 @@ public class SyncronizedExample {
         var thread2 = new Thread(SyncronizedExample::doJob, "thread-2");
         var thread3 = new Thread(SyncronizedExample::doJob, "thread-3");
 
-        thread1.start(); // thread-1
-        thread2.start(); // thread-2
-        thread3.start(); // thread-2
+        thread1.start();
+        thread2.start();
+        thread3.start();
     }
 
     public static void doJob() {
