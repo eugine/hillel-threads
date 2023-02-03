@@ -12,11 +12,11 @@ public class Game {
         this.puzzle = puzzle;
     }
 
-    public GameResult play(String guess) {
+    public RoundResult play(String guess) {
         if (puzzle.equalsIgnoreCase(guess)) {
-            return new GameResult(puzzle, GameStatus.WIN);
+            return new RoundResult(puzzle, RoundStatus.WIN);
         }
-        return new GameResult(getHint(guess), GameStatus.LOST);
+        return new RoundResult(getHint(guess), RoundStatus.LOST);
     }
 
     private String getHint(String guess) {

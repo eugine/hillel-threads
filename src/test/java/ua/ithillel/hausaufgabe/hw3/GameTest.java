@@ -9,16 +9,16 @@ import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static ua.ithillel.hausaufgabe.hw3.GameStatus.LOST;
-import static ua.ithillel.hausaufgabe.hw3.GameStatus.WIN;
+import static ua.ithillel.hausaufgabe.hw3.RoundStatus.LOST;
+import static ua.ithillel.hausaufgabe.hw3.RoundStatus.WIN;
 
 class GameTest {
 
     private static Stream<Arguments> datasource() {
         return Stream.of(
-                Arguments.of("puzzle", "puzzle", new GameResult("puzzle", WIN)),
-                Arguments.of("puzzle", "pizza", new GameResult("p#zz###########", LOST)),
-                Arguments.of("apple", "apricot", new GameResult("ap#############", LOST))
+                Arguments.of("puzzle", "puzzle", new RoundResult("puzzle", WIN)),
+                Arguments.of("puzzle", "pizza", new RoundResult("p#zz###########", LOST)),
+                Arguments.of("apple", "apricot", new RoundResult("ap#############", LOST))
         );
     }
 
@@ -28,7 +28,7 @@ class GameTest {
 
         var result = game.play("puzzle");
 
-        assertThat(result, equalTo(new GameResult("puzzle", WIN)));
+        assertThat(result, equalTo(new RoundResult("puzzle", WIN)));
     }
 
     @Test
@@ -37,12 +37,12 @@ class GameTest {
 
         var result = game.play("pizza");
 
-        assertThat(result, equalTo(new GameResult("p#zz###########", LOST)));
+        assertThat(result, equalTo(new RoundResult("p#zz###########", LOST)));
     }
 
     @ParameterizedTest
     @MethodSource("datasource")
-    void shouldAssertGameResult(String puzzle, String guess, GameResult expectedResult) {
+    void shouldAssertGameResult(String puzzle, String guess, RoundResult expectedResult) {
         var game = new Game(puzzle);
 
         var result = game.play(guess);

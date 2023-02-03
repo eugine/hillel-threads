@@ -29,7 +29,7 @@ public class Main {
         var scanner = new Scanner(System.in);
         while (true) {
             var result = game.play(scanner.next());
-            if (result.status() == GameStatus.WIN) {
+            if (result.status() == RoundStatus.WIN) {
                 System.out.println("You win the game!");
                 break;
             } else {
