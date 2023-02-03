@@ -14,9 +14,9 @@ public class Game {
 
     public RoundResult play(String guess) {
         if (puzzle.equalsIgnoreCase(guess)) {
-            return new RoundResult(puzzle, RoundStatus.WIN);
+            return new RoundResult(RoundStatus.WIN, puzzle);
         }
-        return new RoundResult(getHint(guess), RoundStatus.LOST);
+        return new RoundResult(RoundStatus.LOST, getHint(guess));
     }
 
     private String getHint(String guess) {

@@ -14,21 +14,13 @@ import static ua.ithillel.hausaufgabe.hw3.RoundStatus.WIN;
 
 class GameTest {
 
-    private static Stream<Arguments> datasource() {
-        return Stream.of(
-                Arguments.of("puzzle", "puzzle", new RoundResult("puzzle", WIN)),
-                Arguments.of("puzzle", "pizza", new RoundResult("p#zz###########", LOST)),
-                Arguments.of("apple", "apricot", new RoundResult("ap#############", LOST))
-        );
-    }
-
     @Test
     void shouldWinGame() {
         var game = new Game("puzzle");
 
         var result = game.play("puzzle");
 
-        assertThat(result, equalTo(new RoundResult("puzzle", WIN)));
+        assertThat(result, equalTo(new RoundResult(WIN, "puzzle")));
     }
 
     @Test
@@ -37,7 +29,7 @@ class GameTest {
 
         var result = game.play("pizza");
 
-        assertThat(result, equalTo(new RoundResult("p#zz###########", LOST)));
+        assertThat(result, equalTo(new RoundResult(LOST, "p#zz###########")));
     }
 
     @ParameterizedTest
@@ -48,6 +40,14 @@ class GameTest {
         var result = game.play(guess);
 
         assertThat(result, equalTo(expectedResult));
+    }
+
+    private static Stream<Arguments> datasource() {
+        return Stream.of(
+                Arguments.of("puzzle", "puzzle", new RoundResult(WIN, "puzzle")),
+                Arguments.of("puzzle", "pizza", new RoundResult(LOST, "p#zz###########")),
+                Arguments.of("apple", "apricot", new RoundResult(LOST, "ap#############"))
+        );
     }
 
 }
