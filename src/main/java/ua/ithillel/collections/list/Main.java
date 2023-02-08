@@ -2,38 +2,32 @@ package ua.ithillel.collections.list;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        fillCollection(list);
+        List<String> items = new ArrayList<>();
+        fillCollection(items);
 
-        var listIterator = list.listIterator();
-
-        for (var item: list) {
-
+        for (var item : items) {
+            System.out.println("Item: " + item);
         }
 
-        System.out.println(listIterator.hasNext());
-        System.out.println(listIterator.hasPrevious());
-        System.out.println("-----------------" + listIterator.next());
-        System.out.println(listIterator.hasNext());
-        System.out.println(listIterator.hasPrevious());
-        System.out.println("-----------------" + listIterator.previous());
-        listIterator.previous();
+        var iter = items.listIterator();
+        System.out.println(iter.hasNext());
+        System.out.println(iter.hasPrevious());
+        System.out.println("-----------------" + iter.next());
+        System.out.println(iter.hasNext());
+        System.out.println(iter.hasPrevious());
+        System.out.println("-----------------" + iter.previous());
+        iter.previous();
 
     }
 
-    private static void fillCollection(Collection collection) {
+    private static void fillCollection(Collection<String> collection) {
         collection.add("one");
-//        collection.add("one");
+        collection.add("one");
         collection.add("two");
         collection.add("three");
         collection.add("three");

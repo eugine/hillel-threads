@@ -7,7 +7,7 @@ public class Utils {
 
     public static int countOccurrence(List<String> items, String value) {
         int count = 0;
-        for (String item: items) {
+        for (String item : items) {
             if (Objects.equals(item, value)) {
                 count++;
             }

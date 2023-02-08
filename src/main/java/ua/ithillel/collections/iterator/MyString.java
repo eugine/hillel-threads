@@ -5,6 +5,7 @@ import java.util.Iterator;
 public class MyString implements Iterable<String> {
 
     private final String value;
+
     public MyString(String value) {
         this.value = value;
     }
