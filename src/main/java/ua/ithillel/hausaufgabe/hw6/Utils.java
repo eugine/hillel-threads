@@ -1,13 +1,14 @@
 package ua.ithillel.hausaufgabe.hw6;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Utils {
 
-    public static int countOccurrence(List<String> list, String item) {
+    public static int countOccurrence(List<String> items, String value) {
         int count = 0;
-        for (String value: list) {
-            if (value.equals(item)) {
+        for (String item: items) {
+            if (Objects.equals(item, value)) {
                 count++;
             }
         }
