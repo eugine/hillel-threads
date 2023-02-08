@@ -1,4 +1,4 @@
-package ua.ithillel.hw2.part3;
+package ua.ithillel.hausaufgabe.hw2.part3;
 
 import org.junit.jupiter.api.Test;
 import ua.ithillel.hausaufgabe.hw2.part3.Circle;
