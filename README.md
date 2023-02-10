@@ -7,3 +7,6 @@ Packages:
  * strings
  * threads.basic
  * unicode
+
+# CI
+ migrated to GitLab
