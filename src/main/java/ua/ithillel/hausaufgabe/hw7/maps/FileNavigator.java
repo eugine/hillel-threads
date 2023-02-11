@@ -2,7 +2,6 @@ package ua.ithillel.hausaufgabe.hw7.maps;
 
 import java.util.*;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;

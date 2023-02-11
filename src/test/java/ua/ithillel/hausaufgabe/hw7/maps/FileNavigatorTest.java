@@ -1,13 +1,13 @@
 package ua.ithillel.hausaufgabe.hw7.maps;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FileNavigatorTest {
@@ -40,19 +40,19 @@ class FileNavigatorTest {
     @Test
     void shouldFindFile() {
         var files = target.find("/root");
-        assertThat(files,containsInAnyOrder(ROOT_BIN, ROOT_OPT, ROOT_LIB32));
+        assertThat(files, containsInAnyOrder(ROOT_BIN, ROOT_OPT, ROOT_LIB32));
     }
 
     @Test
     void shouldFilterBySizeFile() {
         var files = target.filterBySize("/root", 1999L);
-        assertThat(files,equalTo(List.of(ROOT_BIN)));
+        assertThat(files, equalTo(List.of(ROOT_BIN)));
     }
 
     @Test
     void shouldFilterAllBySizeFile() {
         var files = target.filterAllBySize(1001L);
-        assertThat(files,containsInAnyOrder(ROOT_BIN, ETC_NONE));
+        assertThat(files, containsInAnyOrder(ROOT_BIN, ETC_NONE));
     }
 
     @Test
