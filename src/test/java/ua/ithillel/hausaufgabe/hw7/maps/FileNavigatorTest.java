@@ -77,7 +77,7 @@ class FileNavigatorTest {
     @Test
     void shouldThrowExceptionForPathInconsistency() {
         var exception = assertThrows(FileInconsistencyException.class, () -> new FileNavigator().add("/wrong", ETC_NONE));
-        assertThat(exception.getFsPath(), equalTo("/wrong1"));
+        assertThat(exception.getFsPath(), equalTo("/wrong"));
         assertThat(exception.getFile(), equalTo(ETC_NONE));
     }
 
