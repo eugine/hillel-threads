@@ -1,6 +1,9 @@
 package ua.ithillel.hausaufgabe.hw7.coffee.order;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Deque;
 
 /*
 1. Створити клас CoffeeOrderBoard. Клас є цифровим поданням черги замовлень у кав'ярні.
@@ -35,7 +38,7 @@ public class CoffeeOrderBoard {
 
     public Order deliver(int id) {
         Order searchedOrder = null;
-        for (Order order: orders) {
+        for (Order order : orders) {
             if (order.id() == id) {
                 searchedOrder = order;
                 break;
