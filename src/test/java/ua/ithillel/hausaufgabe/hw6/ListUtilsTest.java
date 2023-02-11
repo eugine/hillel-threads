@@ -7,10 +7,10 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static ua.ithillel.hausaufgabe.hw6.Utils.countOccurrence;
+import static ua.ithillel.hausaufgabe.hw6.ListUtils.countOccurrence;
 
 //@TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
-class UtilsTest {
+class ListUtilsTest {
 
     List<String> list;
 
