@@ -3,7 +3,7 @@ package ua.ithillel.hausaufgabe.hw6;
 import java.util.List;
 
 public interface HomeworkList {
-    int countOccurrence(List<String> items, String value);
+    <T> int countOccurrence(List<T> items, T value);
 
     <T> List<T> toList(T[] array);
 

@@ -10,7 +10,7 @@ import static java.util.stream.Collectors.toMap;
 public class StreamHomeworkList implements HomeworkList {
 
     @Override
-    public int countOccurrence(List<String> items, String value) {
+    public <T> int countOccurrence(List<T> items, T value) {
         return (int) items.stream()
                 .filter(item -> Objects.equals(item, value))
                 .count();
