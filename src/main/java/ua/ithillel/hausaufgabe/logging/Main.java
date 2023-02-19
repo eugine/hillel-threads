@@ -1,6 +1,5 @@
 package ua.ithillel.hausaufgabe.logging;
 
-import ua.ithillel.hausaufgabe.logging.console.ConsoleLogger;
 import ua.ithillel.hausaufgabe.logging.file.FileLogger;
 import ua.ithillel.hausaufgabe.logging.file.FileLoggerConfig;
 

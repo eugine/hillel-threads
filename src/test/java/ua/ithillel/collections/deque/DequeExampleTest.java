@@ -3,7 +3,6 @@ package ua.ithillel.collections.deque;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;
-import java.util.LinkedList;
 
 public class DequeExampleTest {
     @Test

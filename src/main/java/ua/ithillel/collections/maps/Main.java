@@ -50,8 +50,5 @@ public class Main {
         map.merge("secret", 3333, (v1, v2) -> v1 + v2);
 
 
-
-
-
     }
 }
