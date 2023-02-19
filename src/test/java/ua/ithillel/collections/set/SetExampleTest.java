@@ -79,7 +79,8 @@ class SetExampleTest {
     }
 
 
-    private record Record(String data){}
+    private record Record(String data) {
+    }
 
     @Test
     void treeSet() {

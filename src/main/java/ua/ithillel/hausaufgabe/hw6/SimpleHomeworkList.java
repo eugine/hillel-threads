@@ -1,6 +1,9 @@
 package ua.ithillel.hausaufgabe.hw6;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class SimpleHomeworkList implements HomeworkList {
 

@@ -1,0 +1,3 @@
+path: logs
+logging-level: DEBUG
+max-file-size: 200

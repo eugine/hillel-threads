@@ -28,3 +28,5 @@ lib
 hs_err_pid*
 
 .idea
+
+logs
