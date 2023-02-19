@@ -1,16 +1,13 @@
 package ua.ithillel.hausaufgabe.hw6;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class SimpleHomeworkList implements HomeworkList {
 
     @Override
-    public int countOccurrence(List<String> items, String value) {
+    public <T> int countOccurrence(List<T> items, T value) {
         int count = 0;
-        for (String item : items) {
+        for (T item : items) {
             if (Objects.equals(item, value)) {
                 count++;
             }
@@ -52,12 +49,8 @@ public class SimpleHomeworkList implements HomeworkList {
     @Override
     public List<NameOccurrence> findOccurrence(List<String> items) {
         var result = new ArrayList<NameOccurrence>();
-        var processed = new ArrayList<String>();
-        for (String item : items) {
-            if (!processed.contains(item)) {
-                result.add(new NameOccurrence(item, countOccurrence(items, item)));
-                processed.add(item);
-            }
+        for (String item : findUnique(items)) {
+            result.add(new NameOccurrence(item, countOccurrence(items, item)));
         }
         return result;
     }
