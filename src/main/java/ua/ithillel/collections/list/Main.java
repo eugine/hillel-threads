@@ -1,8 +1,8 @@
 package ua.ithillel.collections.list;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import ua.ithillel.hausaufgabe.hw7.maps.FileData;
+
+import java.util.*;
 
 public class Main {
 
@@ -22,7 +22,6 @@ public class Main {
         System.out.println(iter.hasPrevious());
         System.out.println("-----------------" + iter.previous());
         iter.previous();
-
     }
 
     private static void fillCollection(Collection<String> collection) {
@@ -32,4 +31,32 @@ public class Main {
         collection.add("three");
         collection.add("three");
     }
+
+    /*
+
+1. Створити клас FileData. Клас представляє конкретний файл і складається з: ім'я файлу, розміру в байтах, шлях до файлу.
+2. Реалізувати метод add у класі FileNavigator. Цей метод додає файл за вказаним шляхом.
+
+     */
+
+    private static class FileNavigator {
+        private Map<String, List<FileData>> files = new HashMap<>();
+
+        public void add(String path, FileData file) {
+
+        }
+
+        public List<FileData> find(String path) {
+            return null;
+        }
+
+        protected Map<String, List<FileData>> getAll() {
+            return files;
+        }
+
+
+    }
+
+
+
 }

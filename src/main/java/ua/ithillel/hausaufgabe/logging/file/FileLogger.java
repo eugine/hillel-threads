@@ -73,7 +73,7 @@ public class FileLogger extends AbstractLogger {
     }
 
     private Stream<Path> getTodayLogFiles() throws IOException {
-        var todayFilesPrefix = String.format("output_%s_.txt", LocalDate.now());
+        var todayFilesPrefix = String.format("output_%s_.log", LocalDate.now());
         return Files.list(Path.of(config.path()))
                 .filter(Files::isRegularFile)
                 .filter(file -> file.toFile().getName().startsWith(todayFilesPrefix));

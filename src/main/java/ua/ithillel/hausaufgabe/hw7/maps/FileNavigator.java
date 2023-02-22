@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
-public class FileNavigator {
+public class FileNavigator implements AutoCloseable{
 
     private final Map<String, List<FileData>> fs = new HashMap<>();
 
@@ -63,4 +63,8 @@ public class FileNavigator {
         return fs;
     }
 
+    @Override
+    public void close() throws Exception {
+        ///close here
+    }
 }
