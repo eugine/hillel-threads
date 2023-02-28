@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "6.6.2"
+    id "com.adarshr.test-logger" version "3.2.0"
 }
 
 group 'ua.ithillel.javapro'
@@ -25,5 +26,7 @@ dependencies {
 }
 
 test {
+    outputs.upToDateWhen {false}
     useJUnitPlatform()
+    testLogging.showStandardStreams = true
 }
