@@ -73,14 +73,14 @@ public class FileLogger extends AbstractLogger {
     }
 
     private Stream<Path> getTodayLogFiles() throws IOException {
-        var todayFilesPrefix = String.format("output_%s_.txt", LocalDate.now());
+        var todayFilesPrefix = String.format("output_%s_", LocalDate.now());
         return Files.list(Path.of(config.path()))
                 .filter(Files::isRegularFile)
                 .filter(file -> file.toFile().getName().startsWith(todayFilesPrefix));
     }
 
     private Path initCurrentFile(int index) {
-        var fileName = String.format("output_%s_%03d.txt", LocalDate.now(), index);
+        var fileName = String.format("output_%s_%03d.log", LocalDate.now(), index);
         return Path.of(config.path(), fileName);
     }
 }
