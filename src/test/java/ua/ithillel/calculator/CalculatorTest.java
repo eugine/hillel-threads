@@ -13,7 +13,7 @@ class CalculatorTest {
     void shouldAddIns() {
         Calculator calculator = new Calculator();
 
-        assertEquals(4, calculator.add(1, 2));
+        assertEquals(3, calculator.add(1, 2));
 
     }
 
