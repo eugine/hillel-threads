@@ -10,8 +10,10 @@ public class Main {
         var logger = getLogger();
 //        var logger = new ConsoleLogger(LoggingLevel.DEBUG);
 
-        logger.debug("Debug message");
-        logger.info("Info message");
+        for (int i = 0; i < 100; i++) {
+            logger.debug("Debug message");
+            logger.info("Info message");
+        }
     }
 
     private static Logger getLogger() {
