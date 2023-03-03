@@ -11,8 +11,10 @@ public class RaceConditionExample {
         for (int i = 0; i < 1_000; i++) {
             var thread = new Thread(() -> updateState(state));
             threads.add(thread);
-            thread.start();
+//            thread.start();
         }
+        threads.forEach(Thread::start);
+
         threads.forEach(thread -> {
             try {
                 thread.join();
