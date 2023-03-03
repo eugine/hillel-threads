@@ -18,8 +18,6 @@ public class ThreadsExample {
     }
 
     public static void printThreadName() {
-        var localVariable1 = 10;
-        var localVariable2 = 20;
         System.out.println("Thread name: " + Thread.currentThread().getName());
     }
 }
