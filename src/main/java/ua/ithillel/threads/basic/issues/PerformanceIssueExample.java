@@ -27,11 +27,11 @@ public class PerformanceIssueExample {
         Arrays.fill(array, 15);
 
         var start = System.currentTimeMillis();
-        runParallel(array, 10);
+        runParallel(array, 5);
         log("Parallel completed in " + (System.currentTimeMillis() - start));
 
         start = System.currentTimeMillis();
-        runSequentially(array, 10);
+        runSequentially(array, 5);
         log("Sequentally completed in " + (System.currentTimeMillis() - start));
     }
 
@@ -40,7 +40,7 @@ public class PerformanceIssueExample {
         Runnable sumRunnable = () -> sum(array);
 
         var threads = IntStream.rangeClosed(0, threadCount)
-                .mapToObj(index ->  new Thread(() -> sum(array), "parallel-" + index))
+                .mapToObj(index ->  new Thread(sumRunnable, "parallel-" + index))
                 .toList();
         threads.forEach(Thread::start);
         threads.forEach(PerformanceIssueExample::joinThread);
