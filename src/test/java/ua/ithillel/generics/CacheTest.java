@@ -1,6 +1,7 @@
 package ua.ithillel.generics;
 
 import org.junit.jupiter.api.Test;
+import ua.ithillel.generics.cache.Cache;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;

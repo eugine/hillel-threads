@@ -1,4 +1,4 @@
-package ua.ithillel.generics;
+package ua.ithillel.generics.cache;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -35,8 +35,8 @@ import java.util.Optional;
  */
 public class ChatGptLRUCache<K, V> implements Cache<K, V> {
     private final int maxSize;
-    private final Map<K, CacheEntry<K, V>> cacheMap = new HashMap<>();
-    private final LinkedList<CacheEntry<K, V>> cacheList = new LinkedList<>();
+    private final Map<K, Pair<K, V>> cacheMap = new HashMap<>();
+    private final LinkedList<Pair<K, V>> cacheList = new LinkedList<>();
 
     public ChatGptLRUCache(int maxSize) {
         this.maxSize = maxSize;
@@ -44,7 +44,7 @@ public class ChatGptLRUCache<K, V> implements Cache<K, V> {
 
     @Override
     public void put(K key, V value) {
-        var entry = new CacheEntry<>(key, value);
+        var entry = new Pair<>(key, value);
 
         if (cacheMap.containsKey(key)) {
             cacheList.remove(entry);
@@ -61,18 +61,25 @@ public class ChatGptLRUCache<K, V> implements Cache<K, V> {
         return Optional.ofNullable(cacheMap.get(key)).stream()
                 .peek(cacheList::remove)
                 .peek(cacheList::addFirst)
-                .map(CacheEntry::value)
+                .map(Pair::value)
                 .findAny()
                 .orElse(null);
     }
 
     @Override
     public V remove(K key) {
-        return Optional.ofNullable(cacheMap.remove(key)).stream()
-                .peek(cacheList::remove)
-                .findAny()
-                .map(CacheEntry::value)
-                .orElse(null);
+        var removed = cacheMap.remove(key);
+        if (removed != null) {
+            cacheList.remove(removed);
+        }
+        return removed.value;
+//
+//
+//        return Optional.ofNullable().stream()
+//                .peek(cacheList::remove)
+//                .findAny()
+//                .map(Pair::value)
+//                .orElse(null)null;
     }
 
     @Override
@@ -86,6 +93,6 @@ public class ChatGptLRUCache<K, V> implements Cache<K, V> {
         return cacheList.size();
     }
 
-    private record CacheEntry<K, V>(K key, V value) {
+    private record Pair<K, V>(K key, V value) {
     }
 }
