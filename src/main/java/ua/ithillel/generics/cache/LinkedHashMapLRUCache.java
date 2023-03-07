@@ -1,4 +1,4 @@
-package ua.ithillel.generics;
+package ua.ithillel.generics.cache;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package ua.ithillel.generics;
+package ua.ithillel.generics.cache;
 
 public interface Cache<K, V> {
     void put(K key, V value);
