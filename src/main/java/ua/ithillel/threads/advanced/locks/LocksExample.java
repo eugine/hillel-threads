@@ -1,5 +1,7 @@
 package ua.ithillel.threads.advanced.locks;
 
+import ua.ithillel.utils.ThreadUtils;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
@@ -10,17 +12,15 @@ import static ua.ithillel.utils.LogUtils.log;
 public class LocksExample {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        var executorService = Executors.newFixedThreadPool(5);
-
         var task = new Task();
+        var thread1 = new Thread(task);
+        var thread2 = new Thread(task);
 
-        var future1 = executorService.submit(task);
-        var future2 = executorService.submit(task);
+        thread1.start();
+        thread2.start();
 
-        future1.get();
-        future2.get();
-
-        executorService.shutdown();
+        thread1.join();
+        thread2.join();
     }
 
     public static class Task implements Runnable {
@@ -33,18 +33,14 @@ public class LocksExample {
         }
 
         public void endJob() {
-            lock.unlock();
             log("ended");
+            lock.unlock();
         }
 
         @Override
         public void run() {
             startJob();
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            ThreadUtils.sleep(2000);
             endJob();
         }
     }
