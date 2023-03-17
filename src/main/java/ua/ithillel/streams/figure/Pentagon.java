@@ -1,6 +1,6 @@
 package ua.ithillel.streams.figure;
 
-public record Pentagon() implements Figure{
+public class Pentagon implements Figure{
     @Override
     public double area() {
         throw new UnsupportedOperationException("Pentagon area is not supported");
