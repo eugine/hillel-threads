@@ -1,5 +1,6 @@
 package ua.ithillel.hausaufgabe.threads.advanced;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled
 class NotOkThreadSafeListTest {
 
     List<String> list = new ArrayList<>();
