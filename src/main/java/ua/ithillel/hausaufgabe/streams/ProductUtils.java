@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toMap;
