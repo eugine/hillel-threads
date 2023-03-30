@@ -14,7 +14,7 @@ public class ReflectionExample {
         System.out.println("Reflection for class: " + classFullName);
         Class<?> clazz = Class.forName(classFullName);
 
-//        information(clazz);
+        information(clazz);
 //        invoke(clazz);
 
     }
