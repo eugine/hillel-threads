@@ -6,13 +6,13 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toMap;
 
 public class ProductUtils {
 
+    @SuppressWarnings("raw")
     public static List<Product> filterByCategoryAndPriceGreaterThan(List<Product> products, String category, double minPrice) {
         return products.stream()
                 .filter(product -> category.equals(product.category()))
