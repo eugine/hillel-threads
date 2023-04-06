@@ -17,7 +17,6 @@ public class BubbleSort {
                     array[j + 1] = value;
                 }
             }
-            LogUtils.log("Iteration [%s] value: %s", i, Arrays.toString(array));
         }
     }
 

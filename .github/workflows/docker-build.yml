@@ -1,0 +1,34 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USER}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+  REPO_NAME: ${{secrets.REPO_NAME}}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: docker-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: docker login
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - name: get current git hash
+        run: |
+          echo "git_version=$(git rev-parse HEAD)" >> $GITHUB_ENV
+      - name: docker build
+        run: |
+          docker build -f Dockerfile.ci -t $DOCKER_USER/$REPO_NAME:${{ env.git_version }} .
+      - name: docker publish
+        run: |
+          docker push $DOCKER_USER/$REPO_NAME:${{ env.git_version }}
