@@ -1,0 +1,29 @@
+name: Docker Build
+
+on:
+  pull_request:
+
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USER}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+  REPO_NAME: ${{secrets.REPO_NAME}}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: docker-build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: docker login
+          run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - name: get current git hash
+          id: git_version
+          run: echo "::set-output name=git_version::$(git rev-parse HEAD)"
+      - name: docker build
+        run: docker build . --file Dockerfile --tag $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.git_version }}
+      - name: docker publish
+        run: docker push $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.git_version }}
