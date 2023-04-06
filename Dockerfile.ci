@@ -1,0 +1,12 @@
+FROM eclipse-temurin:17-jdk-alpine as build
+
+WORKDIR /usr/src/app
+
+COPY . .
+RUN ./gradlew build
+
+FROM eclipse-temurin:17-jre-alpine as release
+
+COPY --from=build /usr/src/app/build/libs/hillel*.jar /usr/local/lib/app.jar
+
+CMD java -cp /usr/local/lib/app.jar ua.ithillel.reflection.ReflectionExample

@@ -26,7 +26,7 @@ jobs:
           echo "git_version=$(git rev-parse HEAD)" >> $GITHUB_ENV
       - name: docker build
         run: |
-          docker build -t $DOCKER_USER/$REPO_NAME:${{ env.git_version }} .
+          docker build -f Dockerfile.ci -t $DOCKER_USER/$REPO_NAME:${{ env.git_version }} .
       - name: docker publish
         run: |
           docker push $DOCKER_USER/$REPO_NAME:${{ env.git_version }}
