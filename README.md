@@ -9,7 +9,11 @@
 ```
 2. Run Postgres 
 ```shell
- docker pull postgres:14.2
- docker run -itd -e POSTGRES_USER=hillel -e POSTGRES_PASSWORD=hillel -p 5432:5432 -v ./data:/var/lib/postgresql/data --name postgresql postgres:14.2
+    run-db.bat / run-db.sh
 ```
+
+### DB Dump
+````shell
+  docker exec -it <image> pg_dump -U hillel postgres > dump.sql
+````
 
