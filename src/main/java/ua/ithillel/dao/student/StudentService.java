@@ -21,9 +21,10 @@ public class StudentService {
                 .map(StudentDto::from);
     }
 
-    public Optional<StudentDto> findById(String id) {
-        return dao.findById(id)
-                .map(StudentDto::from);
+    public List<StudentDto> findByName(String name) {
+        return dao.findByName(name).stream()
+                .map(StudentDto::from)
+                .toList();
     }
 
 }

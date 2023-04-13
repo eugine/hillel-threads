@@ -43,12 +43,12 @@ class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public Optional<Student> findById(String id) {
-        var sql = "select * from students where id = " + id;
+    public List<Student> findByName(String name) {
+        var sql = "select * from students where name = '" + name + "'";
         try (var connection = dataSource.getConnection();
              var statement = connection.createStatement()) {
             var result = statement.executeQuery(sql);
-            return mapStudents(result).stream().findFirst();
+            return mapStudents(result);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
