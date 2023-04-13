@@ -2,6 +2,7 @@ package ua.ithillel.dao.student;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -14,15 +15,15 @@ import static org.hamcrest.Matchers.*;
 
 class StudentDaoImplIntegrationTest {
 
-    private StudentDaoImpl target;
+    private static DataSource dataSource;
+    private final StudentDaoImpl target = new StudentDaoImpl(dataSource);
 
-    @BeforeEach
-    public void setup() {
-        var datasource = hikariDataSource();
-        target = new StudentDaoImpl(datasource);
+    @BeforeAll
+    public static void init() {
+        dataSource = hikariDataSource();
     }
 
-    private DataSource hikariDataSource() {
+    private static DataSource hikariDataSource() {
         var config = new HikariConfig();
         //creates in-memory DB and init it with a script
         config.setJdbcUrl("jdbc:h2:mem:test;INIT=runscript from './src/test/resources/h2-students-db.sql'");
