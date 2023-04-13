@@ -9,7 +9,20 @@
 ```
 2. Run Postgres 
 ```shell
- docker pull postgres:14.2
- docker run -itd -e POSTGRES_USER=hillel -e POSTGRES_PASSWORD=hillel -p 5432:5432 -v ./data:/var/lib/postgresql/data --name postgresql postgres:14.2
+    run-db.bat / run-db.sh
 ```
 
+### DB Dump
+1. Create a dump
+````shell
+  docker exec -it <image> pg_dump -U hillel postgres > dump.sql
+````
+2. Copy the dump from docker image: 
+   1. docker exec -it <image> cat xxx > dump.sql 
+   2. docker cp <image>:dump.sql dump-xx.sql
+3. drop tables in db
+4. Make sure the dump is in the image: 
+   1. docker cp dump.sql <image>:dump.sql
+5. Import the dump:
+   1. docker exec -it <image> bash 
+   2. psql -U hillel < dump.sql
