@@ -17,7 +17,7 @@ public class Main {
 //        service.findAll().forEach(System.out::println);
 
 //        System.out.println(service.findById(2L).orElseThrow());
-        System.out.println(service.findById("2").orElseThrow());
+        System.out.println(service.findByName("John Doe"));
 //        what is the issue with a string?
 
     }
