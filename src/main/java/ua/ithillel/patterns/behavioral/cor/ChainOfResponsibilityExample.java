@@ -1,4 +1,4 @@
-package ua.ithillel.patterns.behavioral.chain_of_responsibility;
+package ua.ithillel.patterns.behavioral.cor;
 
 
 record Request (String type, String message) {
