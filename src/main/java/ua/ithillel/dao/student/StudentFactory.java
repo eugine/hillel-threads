@@ -1,6 +1,7 @@
 package ua.ithillel.dao.student;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 public class StudentFactory {
 
@@ -10,5 +11,9 @@ public class StudentFactory {
 
     private static StudentDao createDao(DataSource dataSource) {
         return new StudentDaoImpl(dataSource);
+    }
+
+    public static StudentService createDummyService(List<Student> students) {
+        return new StudentService(new DummyStudentDao(students));
     }
 }

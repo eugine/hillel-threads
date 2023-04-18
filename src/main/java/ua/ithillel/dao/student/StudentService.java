@@ -1,14 +1,14 @@
 package ua.ithillel.dao.student;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public class StudentService {
     private final StudentDao dao;
+
+    protected StudentService(StudentDao dao) {
+        this.dao = dao;
+    }
 
     public List<StudentDto> findAll() {
         return dao.findAll().stream()
