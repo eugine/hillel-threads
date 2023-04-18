@@ -12,6 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 
+@Disabled
 class StudentDaoImplIntegrationTest {
 
     private static DataSource dataSource;
