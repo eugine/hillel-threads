@@ -1,15 +1,21 @@
 package ua.ithillel.server.http;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import static ua.ithillel.utils.LogUtils.log;
 
 public class SimpleHttpServer {
     public static void main(String[] args) throws IOException {
         var serverSocket = new ServerSocket(8080);
-        System.out.println("Listening on port 8080...");
+        log("Listening on port 8080...");
 
         while (true) {
-            Socket clientSocket = serverSocket.accept();
+            var clientSocket = serverSocket.accept();
             handleRequest(clientSocket);
         }
     }
@@ -18,7 +24,7 @@ public class SimpleHttpServer {
         var in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         String inputLine;
         while ((inputLine = in.readLine()) != null) {
-            System.out.println(inputLine);
+            log(inputLine);
             if (inputLine.startsWith("GET")) {
                 break;
             }
