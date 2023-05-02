@@ -2,6 +2,9 @@ plugins {
     id 'java'
     id "io.freefair.lombok" version "8.0.1"
     id "com.adarshr.test-logger" version "3.2.0"
+
+    id 'org.springframework.boot' version '3.0.5'
+    id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group 'ua.ithillel.javapro'
@@ -17,6 +20,8 @@ ext {
 
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
 
     implementation "com.fasterxml.jackson.core:jackson-databind:2.15.0"
     implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.0"
@@ -24,8 +29,8 @@ dependencies {
     implementation 'org.postgresql:postgresql:42.6.0'
     implementation 'com.zaxxer:HikariCP:5.0.1'
 
-    implementation 'org.slf4j:slf4j-api:2.0.7'
-    implementation 'org.slf4j:slf4j-simple:2.0.7'
+//    implementation 'org.slf4j:slf4j-api:2.0.7'
+//    implementation 'org.slf4j:slf4j-simple:2.0.7'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     testImplementation 'org.hamcrest:hamcrest:2.2'
@@ -39,4 +44,8 @@ test {
     outputs.upToDateWhen {false}
     useJUnitPlatform()
     testLogging.showStandardStreams = true
+}
+
+jar {
+    enabled = false
 }
