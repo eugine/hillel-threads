@@ -45,3 +45,7 @@ test {
     useJUnitPlatform()
     testLogging.showStandardStreams = true
 }
+
+jar {
+    enabled = false
+}
