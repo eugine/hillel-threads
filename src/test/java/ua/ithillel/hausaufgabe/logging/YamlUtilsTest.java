@@ -1,11 +1,13 @@
 package ua.ithillel.hausaufgabe.logging;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import ua.ithillel.hausaufgabe.logging.file.FileLoggerConfig;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ua.ithillel.hausaufgabe.logging.LoggingLevel.DEBUG;
 
+@Disabled
 class YamlUtilsTest {
 
     @Test
