@@ -18,11 +18,10 @@ public class RestApplication {
     }
 
     @Bean
-    public StudentService studentService(DataSource dataSource) {
-        return StudentFactory.createService(dataSource);
+    public StudentService studentService() {
+        return StudentFactory.createService(hikariDataSource());
     }
 
-    @Bean
     public DataSource hikariDataSource() {
         var config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/hillel");
