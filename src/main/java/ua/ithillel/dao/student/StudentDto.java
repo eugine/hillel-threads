@@ -8,6 +8,6 @@ public record StudentDto(
         int age) {
 
     static StudentDto from(Student student) {
-        return new StudentDto(student.getId(), student.getName(), student.getEmail(), student.getEmail(), student.getAge());
+        return new StudentDto(student.getId(), student.getName(), student.getEmail(), student.getMajor(), student.getAge());
     }
 }
