@@ -22,12 +22,16 @@ ext {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-
     implementation "com.fasterxml.jackson.core:jackson-databind:2.15.0"
     implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.0"
 
     implementation 'org.postgresql:postgresql:42.6.0'
     implementation 'com.zaxxer:HikariCP:5.0.1'
+
+    implementation 'org.springframework.boot:spring-boot-starter-jpa'
+    implementation 'org.springframework:spring-orm'
+    implementation 'org.hibernate:hibernate-core:6.2.2.Final'
+    implementation 'org.hibernate:hibernate-orm:6.2.2.Final'
 
 //    implementation 'org.slf4j:slf4j-api:2.0.7'
 //    implementation 'org.slf4j:slf4j-simple:2.0.7'
