@@ -70,7 +70,7 @@ class StudentDaoImpl implements StudentDao {
 
     @Override
     public void persist(Student student) {
-
+        System.out.println("Student persisted into DB: " + student);
     }
 
     @Override

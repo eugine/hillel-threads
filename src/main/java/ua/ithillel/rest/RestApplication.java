@@ -22,7 +22,7 @@ public class RestApplication {
         return StudentFactory.createService(hikariDataSource());
     }
 
-    private static DataSource hikariDataSource() {
+    public DataSource hikariDataSource() {
         var config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/hillel");
         config.setUsername("hillel");
