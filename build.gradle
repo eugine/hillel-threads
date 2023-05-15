@@ -48,3 +48,7 @@ test {
 jar {
     enabled = false
 }
+
+springBoot {
+    mainClassName = 'ua.ithillel.rest.RestApplication'
+}
