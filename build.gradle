@@ -50,5 +50,5 @@ jar {
 }
 
 springBoot {
-    mainClassName = 'ua.ithillel.rest.RestApplication'
+    mainClass = 'ua.ithillel.rest.RestApplication'
 }
