@@ -27,4 +27,23 @@ public class StudentService {
                 .toList();
     }
 
+    public void persist(StudentDto student) {
+        dao.persist(Student.builder()
+                        .name(student.name())
+                        .age(Optional.ofNullable(student.age()).orElse(-1))
+                        .email(student.email())
+                        .major(student.major())
+                .build());
+    }
+
+    public void update(StudentDto student) {
+        dao.update(Student.builder()
+                        .id(student.id())
+                        .name(student.name())
+                        .email(student.email())
+                        .major(student.major())
+                        .age(student.age())
+                .build());
+    }
+
 }
