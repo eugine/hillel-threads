@@ -14,13 +14,10 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    jacksonVersion = '2.15.0'
-}
-
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
     implementation "com.fasterxml.jackson.core:jackson-databind:2.15.0"
     implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.0"
@@ -43,11 +40,15 @@ dependencies {
 }
 
 test {
-    outputs.upToDateWhen {false}
+    outputs.upToDateWhen { false }
     useJUnitPlatform()
     testLogging.showStandardStreams = true
 }
 
 jar {
     enabled = false
+}
+
+springBoot {
+    mainClass = 'ua.ithillel.rest.RestApplication'
 }
