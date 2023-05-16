@@ -1,6 +1,5 @@
 package ua.ithillel.spring.mvc;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,16 +8,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.ithillel.dao.student.StudentDto;
 import ua.ithillel.dao.student.StudentService;
+import ua.ithillel.spring.mvc.exception.SpringMvcModelNotFoundException;
 
 @Controller
 @RequestMapping("/")
-@RequiredArgsConstructor
 public class SpringMvcController {
     private final StudentService studentService;
 
-    @GetMapping
+    public SpringMvcController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+    @GetMapping("")
     public String students(Model model) {
-        model.addAttribute("name", "Test name");
+        model.addAttribute("nameXXXX", "Test name");
         model.addAttribute("students", studentService.findAll());
         return "students/index";
     }
@@ -29,19 +32,33 @@ public class SpringMvcController {
         return "students/create";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public String create(StudentDto studentDto, Model model) {
         studentService.persist(studentDto);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") long id, Model model) {
         var student = studentService.findById(id)
-                .orElseThrow();
-
+                .orElseThrow(() -> new SpringMvcModelNotFoundException("Student not found"));
         model.addAttribute("student", student);
         return "students/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String edit(@PathVariable("id") long id, StudentDto studentDto, Model model) {
+        studentService.update(studentDto.toBuilder()
+                .id(id)
+                .age(30)
+                .build());
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") long id) {
+        studentService.delete(id);
+        return "redirect:/";
     }
 
 

@@ -1,7 +1,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
 
-<p th:text="'Hello, ' + ${name} + '!'" />
+<p th:text="'Hello YYYYY, ' + ${nameXXXX} + '!'" />
+
 
 <div th:switch="${students}">
     <h2 th:case="null">No students yet!</h2>
@@ -28,6 +32,6 @@
     </div>
     <p><a href="/create">Add a new student</a></p>
 </div>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

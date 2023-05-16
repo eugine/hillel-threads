@@ -2,7 +2,7 @@
 <body>
     <p>Edit a student:</p>
     <form action="#"
-          th:action="@{/update/{id}(id=${student.id})}"
+          th:action="@{/edit/{id}(id=${student.id})}"
           th:object="${student}"
           method="post">
         <label for="name">Name</label>

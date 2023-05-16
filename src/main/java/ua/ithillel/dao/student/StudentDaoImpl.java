@@ -108,6 +108,16 @@ class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean delete(Long id) {
-        return false;
+        var sql = """
+                delete from students where id = ?
+                """;
+        try (var conn = dataSource.getConnection();
+             var statement = conn.prepareStatement(sql)) {
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return true;
     }
 }
