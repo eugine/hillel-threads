@@ -46,4 +46,8 @@ public class StudentService {
                 .build());
     }
 
+    public void delete(Long id) {
+        dao.delete(id);
+    }
+
 }

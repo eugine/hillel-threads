@@ -2,7 +2,7 @@ package ua.ithillel.dao.student;
 
 import lombok.Builder;
 
-@Builder
+@Builder(toBuilder = true)
 public record StudentDto(
         Long id,
         String name,

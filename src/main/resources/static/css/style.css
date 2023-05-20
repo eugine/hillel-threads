@@ -1,0 +1,32 @@
+:root {
+    --color1: #00cfd6;
+    --color2: #7db9e8;
+    --color3: #05b1b1;
+    --color4: #52339a;
+}
+body{
+    background: #f6f6f6;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+section {
+    padding: 100px 0;
+}
+
+header{
+    padding: 200px 0;
+    font-family: 'Comfortaa', cursive;
+}
+header *{
+    color: #ffff;
+}
+header{
+
+    background: var(--color1);
+    background: -moz-radial-gradient(center, ellipse cover, var(--color1) 0%, var(--color2) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, var(--color1) 0%, var(--color2) 100%);
+    background: radial-gradient(ellipse at center, var(--color1) 0%, var(--color2) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color4), endColorstr=var(--color2), GradientType=1);
+}
