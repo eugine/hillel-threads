@@ -25,6 +25,8 @@ dependencies {
 
     implementation 'org.postgresql:postgresql:42.6.0'
     implementation 'com.zaxxer:HikariCP:5.0.1'
+    implementation 'org.flywaydb:flyway-core:9.19.0'
+//    implementation 'org.flywaydb:flyway-maven-plugin:9.18.0'
 
     implementation 'org.springframework:spring-orm:6.0.9'
     implementation 'org.hibernate:hibernate-core:6.2.3.Final'
