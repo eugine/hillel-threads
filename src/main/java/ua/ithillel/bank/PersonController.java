@@ -25,8 +25,10 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<PersonDto> getPersons(Pageable pageable) {
-        return personService.findPersons(pageable);
+    public List<PersonDto> getPersons(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "email", required = false) String email) {
+        return personService.findPersons(name, email);
     }
 
     @PostMapping
