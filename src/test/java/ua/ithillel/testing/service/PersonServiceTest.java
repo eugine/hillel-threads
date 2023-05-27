@@ -2,18 +2,21 @@ package ua.ithillel.testing.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ua.ithillel.testing.service.event.Event;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import ua.ithillel.testing.service.repository.PersonRepository;
 
-import static ua.ithillel.testing.service.event.EventType.PERSON_CREATED;
-
+@ExtendWith(MockitoExtension.class)
 class PersonServiceTest {
+    @Mock
     private PersonRepository personRepository;
-    private PersonService personService;
+    private PersonService target;
 
     @BeforeEach
     void setUp() {
-        personService = new PersonService(personRepository);
+        target = new PersonService(personRepository);
     }
 
     @Test
