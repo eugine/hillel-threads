@@ -51,15 +51,4 @@ public class SquidexCreditScoreService implements CreditScoreService {
         return result.getData().getScore().getIv();
     }
 
-    public static void main(String[] args) {
-        var props = new SquidexProperties(
-                "https://cloud.squidex.io/api/content/hillel/credit-score",
-                "https://cloud.squidex.io/identity-server/connect/token",
-                "hillel:hillel",
-                "cvjorwzuckrdbpigdzx34dcjl1xa24vwxlzxa9vtbcyx"
-        );
-        var score = new SquidexCreditScoreService(props).getScore("1");
-        System.out.println(score);
-    }
-
 }
