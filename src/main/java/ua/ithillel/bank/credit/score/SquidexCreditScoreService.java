@@ -12,12 +12,26 @@ import java.util.Map;
 @Slf4j
 public class SquidexCreditScoreService implements CreditScoreService {
 
-    private final WebClient webClient;
     private final SquidexProperties props;
+    private WebClient webClient;
 
     public SquidexCreditScoreService(SquidexProperties props) {
         this.props = props;
-        var token = WebClient.create().post()
+    }
+
+    private WebClient getWebClient() {
+        if (webClient == null) {
+            var token = getToken(props);
+
+            this.webClient = WebClient.builder()
+                    .defaultHeader("Authorization", "Bearer " + token)
+                    .build();
+        }
+        return webClient;
+    }
+
+    private Object getToken(SquidexProperties props) {
+        return WebClient.create().post()
                 .uri(props.getTokenUrl())
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData("grant_type", "client_credentials")
@@ -29,11 +43,6 @@ public class SquidexCreditScoreService implements CreditScoreService {
                 .bodyToMono(Map.class)
                 .block()
                 .get("access_token");
-
-
-        this.webClient = WebClient.builder()
-                .defaultHeader("Authorization", "Bearer " + token)
-                .build();
     }
 
     @Override
@@ -42,7 +51,7 @@ public class SquidexCreditScoreService implements CreditScoreService {
         //TODO: implement personId to squidex id mapping
         var resourceId = "2bd7d78c-8763-480a-8492-38287bdc7d39";
 
-        var result = webClient.get()
+        var result = getWebClient().get()
                 .uri(props.getUrl() + "/" + resourceId)
                 .retrieve()
                 .bodyToMono(SquidexResponse.class)

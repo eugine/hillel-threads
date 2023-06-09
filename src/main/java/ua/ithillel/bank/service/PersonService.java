@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import ua.ithillel.bank.credit.score.CreditScoreService;
 import ua.ithillel.bank.repository.Person;
 import ua.ithillel.bank.repository.PersonRepository;
 
@@ -12,13 +13,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class PersonService {
     private final PersonRepository personRepository;
-
-    public PersonService(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
+    private final CreditScoreService creditScoreService;
 
     public List<PersonDto> findPersons(Pageable pageable) {
         return personRepository.findAll(pageable).stream()
@@ -27,6 +25,9 @@ public class PersonService {
     }
 
     public List<PersonDto> findPersons(String name, String email) {
+
+        creditScoreService.getScore("any");
+
         var specification = Specification.where(nameEqualQuery(name))
                 .and(emailEqualQuery(email));
 
@@ -70,10 +71,12 @@ public class PersonService {
     }
 
     public PersonDto create(PersonDto person) {
+        var score = creditScoreService.getScore(person.id());
         var savedPerson = personRepository.save(Person.builder()
                 .uid(UUID.randomUUID().toString())
                 .name(person.name())
                 .email(person.email())
+//                        .rank(score)
                 .build());
         return mapPerson(savedPerson);
     }

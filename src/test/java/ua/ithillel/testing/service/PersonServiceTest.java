@@ -4,14 +4,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
+import ua.ithillel.bank.credit.score.CreditScoreService;
 import ua.ithillel.testing.service.repository.PersonRepository;
 
 @ExtendWith(MockitoExtension.class)
 class PersonServiceTest {
     @Mock
     private PersonRepository personRepository;
+    @Mock
+    private CreditScoreService creditScoreService;
     private PersonService target;
 
     @BeforeEach
