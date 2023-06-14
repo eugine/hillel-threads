@@ -1,10 +1,11 @@
 name: Docker Build
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+  workflow_run:
+    workflows: ["gradle-build"]
+#    branches: [main]
+    types:
+      - completed
 
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
