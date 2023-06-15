@@ -31,7 +31,7 @@ dependencies {
     implementation 'org.flywaydb:flyway-core:9.19.4'
 //    implementation 'org.flywaydb:flyway-maven-plugin:9.18.0'
 
-    implementation 'org.springframework:spring-orm:6.0.9'
+    implementation 'org.springframework:spring-orm:6.0.10'
     implementation 'org.hibernate:hibernate-core:6.2.4.Final'
 
     implementation 'net.logstash.logback:logstash-logback-encoder:7.3'
