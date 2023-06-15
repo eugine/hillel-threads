@@ -5,6 +5,7 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.junit.jupiter.api.Test;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,6 +37,7 @@ class PersonControllerIntegrationTest extends BaseIntegrationTest {
 
     @Test
     void shouldGetAllPersonsByName() throws Exception {
+        MDC.put("test", "test");
         wireMockServer.stubFor(WireMock.post(urlEqualTo("/identity-server/connect/token"))
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "application/json")
