@@ -47,7 +47,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     testImplementation 'com.h2database:h2:2.1.214'
-    testImplementation 'com.github.tomakehurst:wiremock:3.0.0-beta-9'
+    testImplementation 'com.github.tomakehurst:wiremock:3.0.0-beta-10'
 }
 
 test {
