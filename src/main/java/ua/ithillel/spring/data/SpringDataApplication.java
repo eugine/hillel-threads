@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ua.ithillel.spring.data.entity.SpringDataStudentRepository;
 
 @Slf4j
-@SpringBootApplication
+//@SpringBootApplication
 @RequiredArgsConstructor
 public class SpringDataApplication implements CommandLineRunner {
 

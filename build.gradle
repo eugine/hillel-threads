@@ -60,6 +60,3 @@ jar {
     enabled = false
 }
 
-springBoot {
-    mainClass = 'ua.ithillel.rest.RestApplication'
-}
