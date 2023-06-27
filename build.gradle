@@ -29,16 +29,13 @@ dependencies {
 
     implementation 'org.postgresql:postgresql:42.6.0'
     implementation 'com.zaxxer:HikariCP:5.0.1'
-//    implementation 'org.flywaydb:flyway-core:9.20.0'
-//    implementation 'org.flywaydb:flyway-maven-plugin:9.18.0'
+    //fixing 9.18, until https://github.com/flyway/flyway/issues/3694 go resolved
+    implementation 'org.flywaydb:flyway-core:9.18.0'
 
     implementation 'org.springframework:spring-orm:6.0.10'
     implementation 'org.hibernate:hibernate-core:6.2.5.Final'
 
     implementation 'net.logstash.logback:logstash-logback-encoder:7.4'
-
-//    implementation 'org.slf4j:slf4j-api:2.0.7'
-//    implementation 'org.slf4j:slf4j-simple:2.0.7'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testImplementation 'org.hamcrest:hamcrest:2.2'
