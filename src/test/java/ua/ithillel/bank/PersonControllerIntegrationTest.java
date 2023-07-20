@@ -31,25 +31,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-@ActiveProfiles("test")
-class PersonControllerIntegrationTest {
 
-    @Autowired
-    protected PersonRepository personRepository;
-    @Autowired
-    protected WireMockServer wireMockServer;
-    @Autowired
-    protected ObjectMapper objectMapper;
+class PersonControllerIntegrationTest extends BaseIntegrationTest {
 
-    @Autowired
-    protected MockMvc mockMvc;
-
-    @DynamicPropertySource
-    public static void registerWiremockBaseUrl(DynamicPropertyRegistry registry) {
-        registry.add("wiremock.baseurl", WiremockConfig.wireMockServer::baseUrl);
-    }
 
     @Test
     void shouldGetAllPersonsByName() throws Exception {
