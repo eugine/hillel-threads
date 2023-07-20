@@ -10,7 +10,7 @@ import ua.ithillel.dao.student.StudentService;
 
 import javax.sql.DataSource;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class RestApplication {
 
     public static void main(String[] args) {
